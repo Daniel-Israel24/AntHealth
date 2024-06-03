@@ -1,0 +1,63 @@
+{% extends 'Main/base.html' %}
+{% load static %}
+
+{% block title %}
+HOME PAGE
+{% endblock %}
+{% block content %}
+<!-- have a div for all, div for article render the article elements systematically -->
+<div class="articles">
+    {% for article in articles %}
+    <h2>{{article.title|upper}}</h2>
+    <div class="article">
+        {% for sub_article in article.subarts.all %}
+        <div class="sub_article">
+            <div class="sub_starter">
+                <p>{{sub_article.starter}}</p>
+                    {% for img in sub_article.image.all %}
+                        <img src="media/{{img.picture}}" alt="{{img.marker}}">
+                        <P>{{img.alt}}</P>
+                    {% empty %}
+                    {% endfor %}
+                    {% for vid in sub_article.video.all %}
+                        <video src="media/{{vid.vid}}" controls></video>
+                    {% empty %}
+                    {% endfor %}
+                    <p>{{sub_article.end}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+
+{% block style %}
+    <style type="text/css">
+        .article {
+            display: block;
+            padding: 5px;
+            width: 100%;
+            background-color: aliceblue;
+        }
+        img, video {
+            max-width: 100%;
+            height: auto;
+            padding: 5px 5px 5px 5px;
+            box-shadow: 6px;
+            width: 100%;
+
+        }
+        p {
+            font-size: large;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: normal;
+            background-color: rgb(171, 194, 214);
+            border-radius: 5px;
+            border: 0px red solid;
+
+        }
+
+
+    </style>
+{% endblock %}

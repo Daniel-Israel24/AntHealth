@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntHealth {% block title %}{% endblock %}</title>
+    <script>
+
+    </script>
+    <link rel="stylesheet" href="style.css" media="">
+    {% block style %}
+    {% endblock %}
+    <style type="text/css">
+        .top {
+            width: 100%;
+            background-color: lime;
+            border-radius: 5px;
+            justify-content: center;
+            z-index: 2000;
+            position: absolute fixed;
+            top: 0px;
+            padding: 5px 5px 5px 5px;
+
+        }
+        h1 {
+            font-size: xx-large;
+            text-transform: uppercase;
+            justify-content: center;
+
+        }
+        h2, h3 {
+            font-size: larger;
+            justify-content: center;
+
+        }
+        .bottom {
+            height: fit-content;
+            width: 100%;
+            position: relative;
+            bottom: 0px;
+            background-color: powderblue;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="header">
+            <h1>AntHealth!</h1>
+            <h2>the place for all your medical advice</h2>
+        </div>
+    </div>
+    {% block body %}
+        <div style="inset: 0; background-color: rgb(73, 64, 64);">
+            {% block content %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+    <div class="bottom">
+        <h3>© AntHealth</h3>
+        <p>For more information, email radaniscab@gmail.com</p>
+    </div>
+</body>
+</html>
